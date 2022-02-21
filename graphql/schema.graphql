@@ -8,8 +8,23 @@ type Movie {
   medium_cover_image: String!
 }
 
+type Product{
+  id:Int!,
+  name:String!
+}
+
 type Query {
-  movies(limit:Int!,rating:Float!): [Movie]
+  products:[Product]
+  movies: [Movie]
   movie(id:Int!): Movie
   suggesions(id:Int!): [Movie]
+}
+
+type Mutation{
+  addProduct(input:addProductInput!):Product
+}
+
+input addProductInput{
+  id:Int
+  name:String
 }
